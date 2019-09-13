@@ -1,28 +1,33 @@
-// import React from 'react';
-// import axios from 'axios';
-// import SWcard from './SWcard';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import SWcard from './SWcard';
 
-// function SWinfo() {
+function SWinfo() {
 
-//     const [info, setInfo] = useState([]);
+    const [info, setInfo] = useState([]);
 
-//     useEffect(() => {
-//         axios
-//         .get('https://swapi.co/api/people/')
-//         .then(response => {
-//             const info = response.results
-//             setInfo(info);
-//             console.log(info);
-//         })
-//         .catch(error => {
-//             console.log('caught from response: ', error);
-//         })
-//     },[])
+    useEffect(() => {
+        axios
+        .get('https://swapi.co/api/people/')
+        .then(response => {
+            const info = response.data.results
+            setInfo(info);
+            console.log(response);
+        })
+        .catch(error => {
+            console.log('caught from response: ', error);
+        })
+    },[])
 
-//     return(
-//         <div>
-//             <SWcard info={info}/>
-//         </div>
-//     )
-// }
-// export default SWinfo;
+    return(
+        <div>
+        hi
+        {info.map(info => {
+            return(<SWcard info={info}/>)
+        }
+            )}
+            hi
+        </div>
+    )
+}
+export default SWinfo;

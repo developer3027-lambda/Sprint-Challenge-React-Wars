@@ -7,14 +7,13 @@ const Wrapper = styled.div`
     background: papayawhip;
     border: 1px solid black;
     border-radius: 5px;
-
 `;
 
 
 const SWcard = props => {
     return(
         <Wrapper>
-            <h1>name</h1>
+            <h1>{props.info.name}</h1>
             <h5>gender</h5>
             <h5>height</h5>
             <h5>hair color</h5>
