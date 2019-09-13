@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-// import SWcard from './SWcard';
+import SWcard from './SWcard';
 
 function SWinfo() {
 
@@ -10,7 +10,7 @@ function SWinfo() {
         axios
         .get('https://swapi.co/api/people/')
         .then(response => {
-            const info = response.data;
+            const info = response.results
             setInfo(info);
             console.log(info);
         })
@@ -19,8 +19,10 @@ function SWinfo() {
         })
     },[])
 
-    return (
-        <h1>Saying Hi</h1>
+    return(
+        <div>
+            <SWcard info={info}/>
+        </div>
     )
 }
 export default SWinfo;
