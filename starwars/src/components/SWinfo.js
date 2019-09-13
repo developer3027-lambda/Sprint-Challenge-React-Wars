@@ -1,6 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import SWcard from './SWcard';
+import styled from 'styled-components';
+
+const Box = styled.div`
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+`;
 
 function SWinfo() {
 
@@ -20,14 +28,12 @@ function SWinfo() {
     },[])
 
     return(
-        <div>
-        hi
+        <Box>
         {info.map(info => {
             return(<SWcard info={info}/>)
         }
             )}
-            hi
-        </div>
+        </Box>
     )
 }
 export default SWinfo;

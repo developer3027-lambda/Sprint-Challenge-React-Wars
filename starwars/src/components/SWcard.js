@@ -2,22 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width: 350px;
-    height: 600px;
+    width: 450px;
+    height: 250px;
     background: papayawhip;
     border: 1px solid black;
     border-radius: 5px;
+    margin-bottom: 18px;
+    padding: 12px;
 `;
 
 
 const SWcard = props => {
     return(
         <Wrapper>
-            <h1>{props.info.name}</h1>
-            <h5>gender</h5>
-            <h5>height</h5>
-            <h5>hair color</h5>
-            <h5>eye color</h5>
+            <h1>Name: {props.info.name}</h1>
+            <h5>Gender: {props.info.gender}</h5>
+            <h5>Height: {props.info.height}</h5>
+            <h5>Hair Color:{props.info.hair_color}</h5>
+            <h5>Eye Color:{props.info.eye_color}</h5>
         </Wrapper>
     )
 }
