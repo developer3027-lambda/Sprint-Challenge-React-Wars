@@ -1,19 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import CharCardInfo from './components/CharCardInfo';
 import './App.css';
 
-const CardBase = styled.div`
+const Base = styled.div`
   width: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  background: #B09B8A;
-  margin-top: 4rem;
+  border-radius: 5px;
+  background: #DAC7B5;
+  margin: 18px 0px;
 `;
 const Line = styled.p`
   display: flex;
   margin-left: 10px;
+  font-feature-settings: "ital";
+`;
+const Nameplate = styled.h2`
+color: #443e3e;
+text-shadow: 1px 1px 5px #fff;
 `;
 
 const App = () => {
@@ -39,12 +47,14 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <CardBase>
-        <h3>{info.name}</h3>
-        <Line>{info.gender}</Line>
-        <Line>{info.hair_color}</Line>
-        <Line>{info.eye_color}</Line>
-      </CardBase>
+      <Base>
+        <Nameplate>{info.name}</Nameplate>
+        <Line>Gender: {info.gender}</Line>
+        <Line>Height: {info.height}</Line>
+        <Line>Hair Color:{info.hair_color}</Line>
+        <Line>Eye Color:{info.eye_color}</Line>
+      </Base>
+      <CharCardInfo />
     </div>
   );
 }
