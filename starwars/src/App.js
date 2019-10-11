@@ -3,6 +3,19 @@ import axios from 'axios';
 import styled from 'styled-components';
 import './App.css';
 
+const CardBase = styled.div`
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background: #B09B8A;
+  margin-top: 4rem;
+`;
+const Line = styled.p`
+  display: flex;
+  margin-left: 10px;
+`;
+
 const App = () => {
   const [info, setInfo] = useState({})
   useEffect(() => {
@@ -26,7 +39,12 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <h2>{info.name}</h2>
+      <CardBase>
+        <h3>{info.name}</h3>
+        <Line>{info.gender}</Line>
+        <Line>{info.hair_color}</Line>
+        <Line>{info.eye_color}</Line>
+      </CardBase>
     </div>
   );
 }
