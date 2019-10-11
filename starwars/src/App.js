@@ -27,10 +27,10 @@ text-shadow: 1px 1px 5px #fff;
 const App = () => {
   const [info, setInfo] = useState({})
   useEffect(() => {
-    axios.get('https://swapi.co/api/people/1/')
+    axios.get('https://swapi.co/api/starships/')
     .then(response => {
       console.log(response);
-      const infoObj = response.data
+      const infoObj = response.data.results[5]
       setInfo(infoObj)
     })
     .catch(error => {
@@ -49,10 +49,9 @@ const App = () => {
       <h1 className="Header">React Wars</h1>
       <Base>
         <Nameplate>{info.name}</Nameplate>
-        <Line>Gender: {info.gender}</Line>
-        <Line>Height: {info.height}</Line>
-        <Line>Hair Color:{info.hair_color}</Line>
-        <Line>Eye Color:{info.eye_color}</Line>
+        <Line>Model: {info.model}</Line>
+        <Line>length: {info.length}</Line>
+        <Line>{info.manufacturer}</Line>
       </Base>
       <CharCardInfo />
     </div>
